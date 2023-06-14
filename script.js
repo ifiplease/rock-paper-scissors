@@ -1,17 +1,20 @@
+let choices = ["rock", "paper", "scissors"];
+
 function getComputerChoice (){
-    let choices = ["rock", "paper", "scissors"];
     let randomReturn = Math.floor(Math.random()* choices.length);
     return choices[randomReturn]
 }
-    let computerSelection = getComputerChoice();
-    console.log(computerSelection);
-
     function playRound(playerSelection, computerSelection) {
         playerSelection = playerSelection.toLowerCase();
         
         let winningCombinations ={
-            rock: "scissors", paper: "rock", scissors: "paper"
+            rock: "scissors",
+            paper: "rock",
+            scissors: "paper"
         };
+        if (!choices.includes(playerSelection)) {
+            return "invalid input";
+        }
         if (playerSelection === computerSelection) {
             return "It's a tie!";
         }
@@ -27,7 +30,17 @@ function getComputerChoice (){
         let computerScore = 0;
 
         for (let i= 0; i < 5; i++) {
-            let playerSelection = prompt('Enter your choice (rock, paper, or scissors):');
+            let computerSelection = getComputerChoice();
+            console.log(computerSelection);
+
+            while (true) {
+                playerSelection = prompt('Enter your choice (rock, paper, or scissors):');
+                if (choices.includes(playerSelection)) {
+                    break;
+                } else {
+                    console.log("Invalid input. Please try again.");}
+            }
+                
             let roundResult = playRound(playerSelection,computerSelection);
             console.log(roundResult);
 
