@@ -9,7 +9,7 @@ body {
 
 }
 
-button {
+.choice {
     font-size: 20px;
     height: 200px;
     width: 200px;
@@ -17,6 +17,7 @@ button {
     border-radius: 20px;
     margin: 10px;
     background-color: rgb(138, 148, 46);
+    transition: transform 0.2s ease-in-out;
     
 
 }
